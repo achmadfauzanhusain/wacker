@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { validateEVM, validateSolana, validateBitcoin, detectChain } from "../src";
+import { validateEVM, validateSolana, validateBitcoin, detectChain, resolveENS } from "../src";
 
 describe("EVM Validator", () => {
   it("should validate correct address", () => {
@@ -34,5 +34,12 @@ describe("Bitcoin Validator", () => {
 
   it("should reject invalid address", () => {
     expect(validateBitcoin("123")).toBe(false);
+  });
+});
+
+describe("Resolve ENS", () => {
+  it("should resolve valid ENS name", async () => {
+    const address = await resolveENS("vitalik.eth");
+    expect(address).toBe("0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045");
   });
 });

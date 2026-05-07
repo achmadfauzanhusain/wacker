@@ -4,3 +4,4 @@ export * from "./bitcoin";
 
 export * from "./utils/detectChain";
 export * from "./utils/validate"
+export * from "./utils/resolveENS";
