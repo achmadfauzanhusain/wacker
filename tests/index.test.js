@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { validateEVM, validateSolana, validateBitcoin } from "../src";
+import { validateEVM, validateSolana, validateBitcoin, detectChain } from "../src";
 
 describe("EVM Validator", () => {
   it("should validate correct address", () => {
