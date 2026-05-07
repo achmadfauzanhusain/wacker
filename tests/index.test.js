@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { validateEVM, validateSolana } from "../src";
+import { validateEVM, validateSolana, validateBitcoin } from "../src";
 
 describe("EVM Validator", () => {
   it("should validate correct address", () => {
@@ -22,5 +22,17 @@ describe("Solana Validator", () => {
 
   it("should reject invalid address", () => {
     expect(validateSolana("123")).toBe(false);
+  });
+});
+
+describe("Bitcoin Validator", () => {
+  it("should validate correct address", () => {
+    expect(
+      validateBitcoin("1BoatSLRHtKNngkdXEeobR76b53LETtpyT")
+    ).toBe(true);
+  });
+
+  it("should reject invalid address", () => {
+    expect(validateBitcoin("123")).toBe(false);
   });
 });
